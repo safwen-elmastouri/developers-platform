@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(33, 78, 255, 1) 0%,
+    rgba(207, 236, 255, 1) 100%
+  );
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.register {
+  box-shadow: 1px -1px 51px -13px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: 1px -1px 51px -13px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 1px -1px 51px -13px rgba(0, 0, 0, 0.46);
+  background-color: rgb(255, 250, 245);
+  padding: 150px;
+  border-radius: 25px 0px 0px 25px;
+}
+h1 {
+  font-family: cursive;
+  margin-top: -2.5rem;
+}
+a {
+  text-decoration: none;
+}
+.welcome {
+  background: linear-gradient(
+    237deg,
+    rgba(136, 143, 237, 1) 0%,
+    rgba(46, 189, 253, 1) 100%
+  );
+  border-radius: 0px 25px 25px 0px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#btn {
+  margin-top: 0.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-family: "Gill Sans", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#title {
+  color: rgb(247, 251, 255);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  font-family: cursive;
+  font-size: 1.2rem;
+  color: rgb(247, 251, 255);
+}
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.errorMsg {
+  max-width: 350px;
+  color: #f21e08;
+  padding: 2px 0;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: -0.2rem;
+  margin-left: 1.2rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input {
+  margin: 0.2rem;
+}
+/* Home page style*/
+.homeContainer {
+  background-color: rgb(255, 250, 245);
+  width: 80%;
+  display: flex;
+  margin: auto;
 }
