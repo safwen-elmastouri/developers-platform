@@ -7,7 +7,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
-import styles from "../Styles/register.module.css"
+import styles from "../styles/register.module.css"
 function Sign(props) {
   const navigate = useNavigate();
 

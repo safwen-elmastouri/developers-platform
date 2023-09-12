@@ -8,7 +8,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import { GlobalContext } from "../context/GlobalState";
-import styles from "../Styles/register.module.css"
+import styles from "../styles/register.module.css"
 
 const Register = (props) => {
   const { registerUser,user } = useContext(GlobalContext);
