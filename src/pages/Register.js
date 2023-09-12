@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -7,22 +7,26 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
+import { GlobalContext } from "../context/GlobalState";
+import styles from "../Styles/register.module.css"
 
-function Register(props) {
+const Register = (props) => {
+  const { registerUser,user } = useContext(GlobalContext);
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [clicked, setClicked] = useState(false);
 
-   function handleClick(event) {
-     navigate("/home");
-   }
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    clicked && navigate("/home");
+    registerUser(data)
+  };
   return (
-    <div className="form">
+    <div className={styles.form}  >
       <div className="container">
         <div className="register">
           <h1>Hello there</h1>
@@ -108,7 +112,7 @@ function Register(props) {
               </p>
             )}
             <label style={{ margin: ".8rem", fontFamily: "-moz-initial" }}>
-              <input type="checkbox" />
+              <input type="checkbox" onClick={() => setClicked(!clicked)} />
               <span>
                 Accept{" "}
                 <span style={{ color: "#0096c7", fontWeight: "bold" }}>
@@ -116,11 +120,7 @@ function Register(props) {
                 </span>
               </span>
             </label>
-            <Button
-              type="submit"
-              id="btn"
-              variant="outlined"
-              onSubmit={handleClick()}>
+            <Button type="submit" id="btn" variant="outlined">
               Register
             </Button>
             <label
@@ -132,7 +132,7 @@ function Register(props) {
               }}>
               <span>
                 Already have account{" "}
-                <Link to="/sign">
+                <Link to="/">
                   <span style={{ color: "#0096c7", fontWeight: "bold" }}>
                     Sign in
                   </span>
@@ -150,6 +150,6 @@ function Register(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Register;

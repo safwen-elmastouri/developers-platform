@@ -1,0 +1,14 @@
+ 
+ .form {
+
+     
+     display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+        background: linear-gradient(
+        90deg,
+        rgba(33, 78, 255, 1) 0%,
+        rgba(207, 236, 255, 1) 100%
+      );
+ }
