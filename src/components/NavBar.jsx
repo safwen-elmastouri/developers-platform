@@ -12,7 +12,6 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -37,13 +36,20 @@ function NavBar() {
 
   return (
     <AppBar
-      sx={{ borderBottom: "1px solid black" ,borderRadius:"10px"}}
+      sx={{}}
       elevation={0}
       position="static"
       style={{ background: "none" }}>
-      <Container maxWidth="xl" style={{ border: "none" }}>
+      <Container
+        maxWidth="xl"
+        style={{ border: "none", backgroundColor: "#0d1b2a" }}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <AdbIcon
+            sx={{
+              display: { xs: "none", md: "flex", color: "#e0e1dd" },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h6"
             noWrap
@@ -55,12 +61,11 @@ function NavBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "black",
+              color: "#e0e1dd",
               textDecoration: "none",
             }}>
             LOGO
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -68,7 +73,7 @@ function NavBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="black">
+              color="#e0e1dd">
               <MenuIcon />
             </IconButton>
             <Menu
@@ -90,12 +95,24 @@ function NavBar() {
               }}>
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography sx={{ color: "black " }} textAlign="center">
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <AdbIcon
+            sx={{
+              display: {
+                xs: "flex",
+                md: "none",
+
+                color: "#e0e1dd ",
+              },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -108,7 +125,7 @@ function NavBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#e0e1dd",
               textDecoration: "none",
             }}>
             LOGO
@@ -120,12 +137,15 @@ function NavBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}>
+                sx={{
+                  color: "#e0e1dd",
+                  display: "block",
+                  textTransform: "none",
+                }}>
                 {page}
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -149,7 +169,7 @@ function NavBar() {
               onClose={handleCloseUserMenu}>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography color="black" textAlign="center">
+                  <Typography color="#0d1b2a  " textAlign="center">
                     {setting}
                   </Typography>
                 </MenuItem>

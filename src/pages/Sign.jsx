@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -7,14 +7,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
-import { GlobalContext } from "../context/GlobalState";
-import styles from "../styles/register.module.css"
-
-const Register = (props) => {
-  const { registerUser,user } = useContext(GlobalContext);
-
+import styles from "./register.module.css";
+function Sign(props) {
   const navigate = useNavigate();
-  const [clicked, setClicked] = useState(false);
 
   const {
     register,
@@ -22,35 +17,16 @@ const Register = (props) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    clicked && navigate("/home");
-    registerUser(data)
+    navigate("/home");
+
+    console.log(data);
   };
   return (
-    <div className={styles.form}  >
+    <div className={styles.form}>
       <div className="container">
         <div className="register">
-          <h1>Hello there</h1>
+          <h1>Welcome back</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Box
-              sx={{ display: "flex", alignItems: "flex-end" }}
-              className="input">
-              <AccountCircle
-                sx={{ color: "rgba(33, 78, 255, 1) ", mr: 1, my: 0.5 }}
-              />
-              <TextField
-                id="input"
-                type="text"
-                label="fullName"
-                variant="standard"
-                name="fullName"
-                {...register("fullName", {
-                  required: "full name is required.",
-                })}
-              />
-            </Box>
-            {errors.fullName && (
-              <p className="errorMsg">{errors.fullName.message}</p>
-            )}
             <Box
               sx={{ display: "flex", alignItems: "flex-end" }}
               className="input">
@@ -111,17 +87,12 @@ const Register = (props) => {
                 letter, digit, and special symbol.
               </p>
             )}
-            <label style={{ margin: ".8rem", fontFamily: "-moz-initial" }}>
-              <input type="checkbox" onClick={() => setClicked(!clicked)} />
-              <span>
-                Accept{" "}
-                <span style={{ color: "#0096c7", fontWeight: "bold" }}>
-                  terms & conditions
-                </span>
-              </span>
-            </label>
-            <Button type="submit" id="btn" variant="outlined">
-              Register
+            <Button
+              type="submit"
+              id="btn"
+              variant="outlined"
+              style={{ textTransform: "none" }}>
+              Sign in
             </Button>
             <label
               style={{
@@ -131,10 +102,10 @@ const Register = (props) => {
                 marginLeft: "1rem",
               }}>
               <span>
-                Already have account{" "}
-                <Link to="/">
+                Don't have account{" "}
+                <Link to="/register">
                   <span style={{ color: "#0096c7", fontWeight: "bold" }}>
-                    Sign in
+                    Register
                   </span>
                 </Link>
               </span>
@@ -143,13 +114,12 @@ const Register = (props) => {
         </div>
         <div className="welcome">
           <div>
-            <h1 id="title">Glad to see you</h1>
-            <p>Create you account for free Now !</p>
+            <h1 id="title">Don't miss the chance</h1>
+            <p>Stay in touch</p>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default Register;
+}
+export default Sign;

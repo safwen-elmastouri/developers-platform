@@ -12,7 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Sign />} />
             <Route path="/register" element={<Register />} />
-            <Route path="home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </GlobalProvider> 
