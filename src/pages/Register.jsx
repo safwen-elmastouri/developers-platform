@@ -144,7 +144,7 @@ const Register = (props) => {
         <div className="welcome">
           <div>
             <h1 id="title">Glad to see you</h1>
-            <p>Create you account for free Now !</p>
+            <p id="text" >Create you account for free Now !</p>
           </div>
         </div>
       </div>

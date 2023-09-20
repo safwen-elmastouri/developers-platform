@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
@@ -115,7 +114,7 @@ function Sign(props) {
         <div className="welcome">
           <div>
             <h1 id="title">Don't miss the chance</h1>
-            <p>Stay in touch</p>
+            <p id="text" >Stay in touch</p>
           </div>
         </div>
       </div>

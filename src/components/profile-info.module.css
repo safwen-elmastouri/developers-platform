@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  margin-top: 20px;
+  padding: 30px 0px 0px;
+  margin-left: 15px;
+  flex-direction: column;
+  background-color: #1b263b;
+  padding: 10px 10px;
+  border-radius: 20px;
+}
+
+.profilePicture {
+  display: block;
+  margin-left: auto;
+  padding-top: 20px;
+  margin-right: auto;
+  width: 25%;
+}
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.info{
+font-family: cursive;
+margin: auto auto;
+  font-size: 1rem;
+  color: rgb(247, 251, 255);
+}

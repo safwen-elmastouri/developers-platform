@@ -10,19 +10,17 @@ export default function PublishPost() {
       <Grid
         style={{ backgroundColor: "#1b263b" }}
         container
-        spacing={1}
-        sx={{
+          sx={{
           padding: "10px 10px",
           borderRadius: "20px",
         }}>
-        <Grid item xs={10} sx={{ margin: "auto auto" }}>
+        <Grid item xs={10} sx={{ margin: " 20px  auto auto" }}>
           <Textarea
-            color="red"
-            minRows={2}
+            minRows={3  }
             placeholder="What's happening ?"
             size="md"
             variant="soft"
-            sx={{ backgroundColor: "#415a77" }}
+            sx={{ backgroundColor: "#415a77", color: "#FFFF" }}
           />
 
           <Box
