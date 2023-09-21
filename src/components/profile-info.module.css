@@ -21,9 +21,9 @@
   justify-content: center;
   flex-direction: column;
 }
-.info{
-font-family: cursive;
+.info {
+ font-family: cursive;
 margin: auto auto;
   font-size: 1rem;
-  color: rgb(247, 251, 255);
+  color: rgb(247, 251, 255)
 }
