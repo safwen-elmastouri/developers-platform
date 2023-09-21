@@ -7,11 +7,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
-import { GlobalContext } from "../context/GlobalState";
-import styles from "./register.module.css"
+import styles from "./register.module.css";
+import { addUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const Register = (props) => {
-  const { registerUser,user } = useContext(GlobalContext);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const [clicked, setClicked] = useState(false);
@@ -23,10 +24,10 @@ const Register = (props) => {
   } = useForm();
   const onSubmit = (data) => {
     clicked && navigate("/home");
-    registerUser(data)
+    dispatch(addUser(data));
   };
   return (
-    <div className={styles.form}  >
+    <div className={styles.form}>
       <div className="container">
         <div className="register">
           <h1>Hello there</h1>
@@ -120,7 +121,11 @@ const Register = (props) => {
                 </span>
               </span>
             </label>
-            <Button type="submit" id="btn" variant="outlined" style={{textTransform: 'none'}} >
+            <Button
+              type="submit"
+              id="btn"
+              variant="outlined"
+              style={{ textTransform: "none" }}>
               Register
             </Button>
             <label
@@ -144,7 +149,7 @@ const Register = (props) => {
         <div className="welcome">
           <div>
             <h1 id="title">Glad to see you</h1>
-            <p id="text" >Create you account for free Now !</p>
+            <p id="text">Create you account for free Now !</p>
           </div>
         </div>
       </div>

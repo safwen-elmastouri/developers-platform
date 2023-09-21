@@ -3,8 +3,12 @@ import { Box, Typography } from "@mui/material";
 import logo from "../images/avatar.png";
 import styles from "./profile-info.module.css";
 import EditIcon from "@mui/icons-material/Edit";
+import { useSelector } from "react-redux";
+
 export default function ProfileInfo() {
-  const [name, setName] = useState("");
+  const user = useSelector((state) => state.user);
+  console.log(user)
+
   return (
     <>
       <Box container spacing={3} className={styles.container}>
@@ -17,7 +21,7 @@ export default function ProfileInfo() {
           alt="profile picture"
         />
         <Box className={styles.infoContainer}>
-          <p className={styles.info}> Safwen </p>
+          <p className={styles.info}> {  user.fullName} </p>
           <p className={styles.info}> Web Developer </p>
         </Box>
       </Box>
