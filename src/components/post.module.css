@@ -1,0 +1,27 @@
+.container{
+    background-color: #1b263b;
+    margin-top: 20px;
+    padding: 10px 50px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+
+}
+.asked{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.user{
+    margin-top: -5px;
+    margin-left: 10px;
+    color: #FFFF;
+    font-family: cursive;
+font-size: 1.3rem;
+font-weight: 300;
+
+}
+.question{
+     color: #e0e1dd ;
+    font-family: serif;
+font-size: 1.2rem;
+}

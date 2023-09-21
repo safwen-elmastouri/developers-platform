@@ -2,12 +2,16 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import styles from "./register.module.css";
-function Sign(props) {
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
+import { AccountCircle } from "@mui/icons-material";
+const Sign = () => {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const {
@@ -17,8 +21,7 @@ function Sign(props) {
   } = useForm();
   const onSubmit = (data) => {
     navigate("/home");
-
-    console.log(data);
+    dispatch(addUser(data));
   };
   return (
     <div className={styles.form}>
@@ -29,26 +32,23 @@ function Sign(props) {
             <Box
               sx={{ display: "flex", alignItems: "flex-end" }}
               className="input">
-              <EmailIcon
+              <AccountCircle
                 sx={{ color: "rgba(33, 78, 255, 1) ", mr: 1, my: 0.5 }}
               />
               <TextField
                 id="input"
-                label="email"
-                variant="standard"
-                name="email"
                 type="text"
-                {...register("email", {
-                  required: "Email is required.",
-                  pattern: {
-                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                    message: "Email is not valid.",
-                  },
+                label="Full name"
+                variant="standard"
+                name="fullName"
+                {...register("fullName", {
+                  required: "full name is required.",
                 })}
               />
             </Box>
-            {errors.email && <p className="errorMsg">{errors.email.message}</p>}
-
+            {errors.fullName && (
+              <p className="errorMsg">{errors.fullName.message}</p>
+            )}
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <LockIcon
                 sx={{ color: "rgba(33, 78, 255, 1) ", mr: 1, my: 0.5 }}
@@ -114,11 +114,11 @@ function Sign(props) {
         <div className="welcome">
           <div>
             <h1 id="title">Don't miss the chance</h1>
-            <p id="text" >Stay in touch</p>
+            <p id="text">Stay in touch</p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 export default Sign;
