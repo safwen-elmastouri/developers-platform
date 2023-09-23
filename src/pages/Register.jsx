@@ -8,7 +8,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import styles from "./register.module.css";
-import { addUser } from "../redux/userSlice";
+import { addUser } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 
 const Register = (props) => {
@@ -41,7 +41,7 @@ const Register = (props) => {
               <TextField
                 id="input"
                 type="text"
-                label="fullName"
+                label="Full name"
                 variant="standard"
                 name="fullName"
                 {...register("fullName", {

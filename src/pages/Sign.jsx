@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
 import styles from "./register.module.css";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/userSlice";
+import { addUser } from "../features/userSlice";
 import { AccountCircle } from "@mui/icons-material";
 const Sign = () => {
   const dispatch = useDispatch();
