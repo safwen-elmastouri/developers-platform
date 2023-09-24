@@ -8,9 +8,12 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { useDispatch } from "react-redux";
-import { likedPost,dislikedPost } from "../features/postSlice";
+import { likedPost, dislikedPost } from "../features/postSlice";
+import { useNavigate } from "react-router-dom";
+
 /* import EditPost from "./EditPost";*/
 const Post = ({ asked_by, question, likes, date, id }) => {
+  const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
   const dispatch = useDispatch();
   const handleLike = () => {
@@ -19,13 +22,14 @@ const Post = ({ asked_by, question, likes, date, id }) => {
   };
 
   const handleDislike = () => {
-   dispatch(dislikedPost(parseInt(id)));
-     setLiked(!liked);
- };
+    dispatch(dislikedPost(parseInt(id)));
+    setLiked(!liked);
+  };
 
+  const goToPostPage = () => {
+  navigate("/post")
 
-  ;
-  console.log(liked)
+}
   return (
     <Container className={styles.container}>
       {/*  <ModeEditIcon
@@ -51,30 +55,42 @@ const Post = ({ asked_by, question, likes, date, id }) => {
         </Box>
       </Box>
       <p className={styles.question}>{question}</p>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <FavoriteBorderIcon
-          onClick={() => handleLike()}
-          sx={{
-            fontSize: "30px",
-            color: "#e0e1dd",
-            cursor: "pointer",
-            display: liked ? "none" :"flex" ,
-          }}
-        />
-        {liked && (
-          <FavoriteIcon onClick={()=>handleDislike()}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <FavoriteBorderIcon
+            onClick={() => handleLike()}
             sx={{
               fontSize: "30px",
+              minWidth: "65px",
+
               color: "#e0e1dd",
               cursor: "pointer",
+              display: liked ? "none" : "flex",
             }}
           />
-        )}
-        <p className={styles.likes}> {likes} </p>
+          {liked && (
+            <FavoriteIcon
+              onClick={() => handleDislike()}
+              sx={{
+                minWidth: "65px",
+                fontSize: "30px",
+                color: "#e0e1dd",
+                cursor: "pointer",
+              }}
+            />
+          )}
+          <p className={styles.likes}> {likes} </p>
+        </Box>
         <ChatBubbleRoundedIcon
+          onClick={() => goToPostPage()}
           sx={{
             color: "#e0e1dd",
-            fontSize: "25px",
+            fontSize: "30px",
             marginRight: "20px",
             cursor: "pointer",
           }}
@@ -82,7 +98,7 @@ const Post = ({ asked_by, question, likes, date, id }) => {
         <SendRoundedIcon
           sx={{
             color: "#e0e1dd",
-            fontSize: "25px",
+            fontSize: "30px",
             cursor: "pointer",
             float: "right",
           }}
