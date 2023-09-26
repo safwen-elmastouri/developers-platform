@@ -21,8 +21,12 @@ export const postSlice = createSlice({
       let likes = parseInt(state[payload].likes) - 1;
       state[payload].likes = likes;
     },
+    addRelpy: (state, { payload }) => {
+      state[payload.id].answers.push(payload)
+      
+    },
   },
 });
-export const { editPost, likedPost, dislikedPost } = postSlice.actions;
+export const { editPost, likedPost, dislikedPost,addRelpy } = postSlice.actions;
 
 export default postSlice.reducer;

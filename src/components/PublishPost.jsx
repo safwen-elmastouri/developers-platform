@@ -1,10 +1,21 @@
-import React from "react";
-import { Box, Button, Container, Grid, Input, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Input,
+  InputAdornment,
+  Typography,
+} from "@mui/material";
 import Textarea from "@mui/joy/Textarea";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
+import SendIcon from "@mui/icons-material/Send";
+
 export default function PublishPost() {
+  const [postContent, setPostContent] = useState(null);
   return (
     <Container
       style={{ backgroundColor: "#1b263b" }}
@@ -19,7 +30,17 @@ export default function PublishPost() {
           placeholder="What's happening ?"
           size="md"
           variant="soft"
+          value={postContent}
+          onChange={(e) => setPostContent(e.target.value)}
           sx={{ backgroundColor: "#415a77", color: "#FFFF" }}
+          endDecorator={
+            postContent && (
+              <InputAdornment
+                sx={{ cursor: "pointer", ml: "auto", mb: "1rem" }}>
+                <SendIcon />
+              </InputAdornment>
+            )
+          }
         />
         <Box
           sx={{

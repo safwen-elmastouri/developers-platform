@@ -12,7 +12,8 @@ import { likedPost, dislikedPost } from "../features/postSlice";
 import { useNavigate } from "react-router-dom";
 
 /* import EditPost from "./EditPost";*/
-const Post = ({ asked_by, question, likes, date, id }) => {
+const Post = (props) => {
+  const { asked_by, question, likes, date, id } = props;
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
   const dispatch = useDispatch();
@@ -27,9 +28,8 @@ const Post = ({ asked_by, question, likes, date, id }) => {
   };
 
   const goToPostPage = () => {
-  navigate("/post")
-
-}
+    navigate("/post", { state: { id } });
+  };
   return (
     <Container className={styles.container}>
       {/*  <ModeEditIcon

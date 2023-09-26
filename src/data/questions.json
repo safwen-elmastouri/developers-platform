@@ -1,5 +1,6 @@
 [
-  {"id":"0",
+  {
+    "id": "0",
     "asked_by": "Alice",
     "likes": "5",
     "date": "2 hours ago",
@@ -20,7 +21,8 @@
       }
     ]
   },
-  {"id":"1",
+  {
+    "id": "1",
     "asked_by": "Eve",
     "likes": "2",
     "date": "1 day ago",
@@ -40,7 +42,8 @@
       }
     ]
   },
-  {"id":"2",
+  {
+    "id": "2",
     "asked_by": "Ivy",
     "likes": "10",
     "date": "30 minutes ago",
@@ -60,7 +63,8 @@
       }
     ]
   },
-  {"id":"3",
+  {
+    "id": "3",
     "asked_by": "Mary",
     "likes": "25",
     "date": "18 hours ago",
@@ -80,7 +84,8 @@
       }
     ]
   },
-  {"id":"4",
+  {
+    "id": "4",
     "asked_by": "Quincy",
     "likes": "3",
     "date": "Just now",
@@ -100,7 +105,8 @@
       }
     ]
   },
-  {"id":"5",
+  {
+    "id": "5",
     "asked_by": "Uma",
     "likes": "5",
     "date": "15 minutes ago",
@@ -120,7 +126,8 @@
       }
     ]
   },
-  {"id":"6",
+  {
+    "id": "6",
     "asked_by": "Yara",
     "likes": "6",
     "date": "1 hours ago",
@@ -140,7 +147,8 @@
       }
     ]
   },
-  {"id":"7",
+  {
+    "id": "7",
     "asked_by": "Carla",
     "likes": "11",
     "date": "9 hours ago",
@@ -161,7 +169,7 @@
     ]
   },
   {
-    "id":"8",
+    "id": "8",
     "asked_by": "Gavin",
     "likes": "15",
     "date": "1 day ago",
@@ -182,7 +190,7 @@
     ]
   },
   {
-    "id":"9",
+    "id": "9",
     "asked_by": "Keith",
     "likes": "7",
     "date": "11 hours ago",
