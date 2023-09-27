@@ -13,9 +13,33 @@ import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 import SendIcon from "@mui/icons-material/Send";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { publishPost } from "../features/postSlice";
 
 export default function PublishPost() {
-  const [postContent, setPostContent] = useState(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.fullName);
+  const [postContent, setPostContent] = useState({
+    id: uuidv4(),
+    asked_by: user,
+    likes: "0",
+    liked: false,
+    date: "Now",
+    question: "",
+    answers: [
+      {
+        answered_by: "dsqfd",
+        answer: "sfqds",
+      },
+    ],
+  });
+  const submitPost = (e) => {
+    e.preventDefault();
+    dispatch(publishPost(postContent));
+    setPostContent({ ...postContent, question: "" });
+  };
+
   return (
     <Container
       style={{ backgroundColor: "#1b263b" }}
@@ -30,14 +54,16 @@ export default function PublishPost() {
           placeholder="What's happening ?"
           size="md"
           variant="soft"
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
+          value={postContent.question}
+          onChange={(e) =>
+            setPostContent({ ...postContent, question: e.target.value })
+          }
           sx={{ backgroundColor: "#415a77", color: "#FFFF" }}
           endDecorator={
-            postContent && (
+            postContent.question && (
               <InputAdornment
                 sx={{ cursor: "pointer", ml: "auto", mb: "1rem" }}>
-                <SendIcon />
+                <SendIcon onClick={(e) => submitPost(e)} />
               </InputAdornment>
             )
           }

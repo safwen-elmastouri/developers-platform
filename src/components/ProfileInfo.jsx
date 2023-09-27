@@ -10,16 +10,14 @@ export default function ProfileInfo() {
   return (
     <>
       <Container container spacing={3} className={styles.container}>
-        <EditIcon
-          sx={{ color: "white", ml: "90%", mt: "10px" }}
-        />
+        <EditIcon sx={{ color: "white", ml: "90%", mt: "10px" }} />
         <img
           className={styles.profilePicture}
           src={logo}
           alt="profile picture"
         />
         <Box className={styles.infoContainer}>
-          <p className={styles.info}> {  user.fullName} </p>
+          <p className={styles.info}> {user.fullName} </p>
           <p className={styles.info}> Web Developer </p>
         </Box>
       </Container>

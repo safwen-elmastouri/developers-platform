@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import defaultPost from "../data/questions.json";
-let post = [...defaultPost];
-const initialState = [...post];
+const initialState = [...defaultPost];
 
 export const postSlice = createSlice({
   name: "post",
@@ -13,6 +12,9 @@ export const postSlice = createSlice({
         ...state,
         post: currentPost,
       };
+    },
+    publishPost: (state, { payload }) => {
+      state.unshift(payload);
     },
     likedPost: (state, { payload }) => {
       let likes = parseInt(state[payload].likes) + 1;
@@ -29,7 +31,7 @@ export const postSlice = createSlice({
     },
   },
 });
-export const { editPost, likedPost, dislikedPost, addRelpy } =
+export const { editPost, likedPost, dislikedPost, addRelpy, publishPost } =
   postSlice.actions;
 
 export default postSlice.reducer;

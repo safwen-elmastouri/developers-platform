@@ -3,10 +3,11 @@ import styles from "./Home.module.css";
 import { Box, Grid } from "@mui/material";
 import ProfileInfo from "../components/ProfileInfo";
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 function Home(props) {
   const { post, user } = useSelector((state) => state);
+
   if (user.length == 0) {
     return <Navigate to="/" replace />;
   } else {
@@ -29,7 +30,7 @@ function Home(props) {
                       id={item.id}
                       date={item.date}
                       question={item.question}
-                      likes={ item.likes }
+                      likes={item.likes}
                       liked={item.liked}
                     />
                   </Fragment>

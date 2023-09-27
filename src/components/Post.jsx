@@ -17,11 +17,11 @@ const Post = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLike = () => {
-    dispatch(likedPost(parseInt(id)));
+    dispatch(likedPost(id));
   };
 
   const handleDislike = () => {
-    dispatch(dislikedPost(parseInt(id)));
+    dispatch(dislikedPost(id));
   };
 
   const goToPostPage = () => {

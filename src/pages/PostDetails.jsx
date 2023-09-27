@@ -23,17 +23,15 @@ const PostDetails = () => {
   const selectedPost = post[id];
   const buttonRef = useRef();
 
-    const scrollBottomRef = useRef(null);
-    useEffect(() => {
-      if (selectedPost.answers.length) {
-        scrollBottomRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-          
-        });
-      }
-    }, [selectedPost.answers.length]);
-console.log(post);
+  const scrollBottomRef = useRef(null);
+  useEffect(() => {
+    if (selectedPost.answers.length) {
+      scrollBottomRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [selectedPost.answers.length]);
 
   const focus = () => {};
 
@@ -74,7 +72,7 @@ console.log(post);
             date={selectedPost.date}
             question={selectedPost.question}
             id={id}
-            likes={ selectedPost.likes }
+            likes={selectedPost.likes}
             liked={selectedPost.liked}
           />
 
@@ -104,10 +102,8 @@ console.log(post);
               );
             })}
           </Container>
-         
-          <form
-            className={styles.form}
-            onSubmit={ SubmitReply }>
+
+          <form className={styles.form} onSubmit={SubmitReply}>
             <TextField
               ref={buttonRef}
               value={reply.answer}
@@ -125,14 +121,14 @@ console.log(post);
                   <InputAdornment position="end">
                     <SendIcon
                       sx={{ cursor: "pointer" }}
-                      onClick={(e)=> SubmitReply(e) }
+                      onClick={(e) => SubmitReply(e)}
                     />
                   </InputAdornment>
                 ),
               }}
             />
           </form>
-          <div ref={scrollBottomRef} ></div>
+          <div ref={scrollBottomRef}></div>
         </Grid>
         <Grid item xs={3}>
           {/*  person you may know */}
