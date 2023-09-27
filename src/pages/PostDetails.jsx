@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavBar, Post } from "../components";
-import styles from "./post-details.module.css";
+import styles from "./PostDetails.module.css";
 import {
   Box,
   Button,
@@ -16,20 +16,30 @@ import { useSelector, useDispatch } from "react-redux";
 import { addRelpy } from "../features/postSlice";
 const PostDetails = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const post = useSelector((state) => state.post);
   const user = useSelector((state) => state.user.fullName);
-
   const { id } = location.state;
   const selectedPost = post[id];
-  const dispatch = useDispatch();
   const buttonRef = useRef();
+
+    const scrollBottomRef = useRef(null);
+    useEffect(() => {
+      if (selectedPost.answers.length) {
+        scrollBottomRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          
+        });
+      }
+    }, [selectedPost.answers.length]);
+console.log(post);
 
   const focus = () => {};
 
   const blur = () => {
     buttonRef.current.blur();
   };
-  const [checkReply, setCheckReply] = useState(null);
   const [reply, setReply] = useState({
     id: id,
     answered_by: user,
@@ -41,6 +51,14 @@ const PostDetails = () => {
     setReply({
       ...reply,
       answer: e.target.value,
+    });
+  };
+  const SubmitReply = (e) => {
+    e.preventDefault();
+    dispatch(addRelpy(reply));
+    setReply({
+      ...reply,
+      answer: "",
     });
   };
   return (
@@ -56,7 +74,8 @@ const PostDetails = () => {
             date={selectedPost.date}
             question={selectedPost.question}
             id={id}
-            likes={selectedPost.likes}
+            likes={ selectedPost.likes }
+            liked={selectedPost.liked}
           />
 
           <Container
@@ -85,14 +104,10 @@ const PostDetails = () => {
               );
             })}
           </Container>
-
-          <Box
-            sx={{
-              backgroundColor: "#1b263b",
-              borderRadius: "25px",
-              marginTop: "10px",
-              display: "flex",
-            }}>
+         
+          <form
+            className={styles.form}
+            onSubmit={ SubmitReply }>
             <TextField
               ref={buttonRef}
               value={reply.answer}
@@ -110,13 +125,14 @@ const PostDetails = () => {
                   <InputAdornment position="end">
                     <SendIcon
                       sx={{ cursor: "pointer" }}
-                      onClick={() => dispatch(addRelpy(reply))}
+                      onClick={(e)=> SubmitReply(e) }
                     />
                   </InputAdornment>
                 ),
               }}
             />
-          </Box>
+          </form>
+          <div ref={scrollBottomRef} ></div>
         </Grid>
         <Grid item xs={3}>
           {/*  person you may know */}

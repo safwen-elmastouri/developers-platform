@@ -1,4 +1,5 @@
 import React, {  useState } from "react";
+import styles from "./Register.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -7,7 +8,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import Button from "@mui/material/Button";
 import { useForm } from "react-hook-form";
-import styles from "./register.module.css";
 import { addUser } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 

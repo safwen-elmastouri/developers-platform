@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./post.module.css";
+import styles from "./Post.module.css";
 import { Box, Container, Typography } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 // import ModeEditIcon from "@mui/icons-material/ModeEdit";
@@ -13,18 +13,15 @@ import { useNavigate } from "react-router-dom";
 
 /* import EditPost from "./EditPost";*/
 const Post = (props) => {
-  const { asked_by, question, likes, date, id } = props;
+  const { asked_by, question, likes, date, id,liked } = props;
   const navigate = useNavigate();
-  const [liked, setLiked] = useState(false);
   const dispatch = useDispatch();
   const handleLike = () => {
     dispatch(likedPost(parseInt(id)));
-    setLiked(!liked);
   };
 
   const handleDislike = () => {
     dispatch(dislikedPost(parseInt(id)));
-    setLiked(!liked);
   };
 
   const goToPostPage = () => {
@@ -48,7 +45,7 @@ const Post = (props) => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <p className={styles.user}> {asked_by}</p>
           <Typography
-            sx={{ marginTop: "-20px", marginLeft: "20px", color: "grey" }}>
+            sx={{ mt: "-20px", ml: "20px", color: "grey" }}>
             {" "}
             {date}{" "}
           </Typography>
@@ -91,7 +88,7 @@ const Post = (props) => {
           sx={{
             color: "#e0e1dd",
             fontSize: "30px",
-            marginRight: "20px",
+            mr: "20px",
             cursor: "pointer",
           }}
         />

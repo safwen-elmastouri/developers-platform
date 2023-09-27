@@ -24,9 +24,9 @@ function App() {
               <Suspense fallback={<Loading />}>
                 <Home />
               </Suspense>
-            }
-          />
-          <Route path="/post" element={<PostDetails />} />
+            }>
+          </Route>
+            <Route path="post" element={<PostDetails />} />
         </Routes>
       </BrowserRouter>
     </Provider>

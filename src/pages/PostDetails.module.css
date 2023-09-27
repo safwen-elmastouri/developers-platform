@@ -17,3 +17,10 @@
   margin: -0.3rem 1rem 0rem;
   text-transform: none;
 }
+.form {
+  background-color: #1b263b;
+  display: flex;
+  border-radius: 25px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}

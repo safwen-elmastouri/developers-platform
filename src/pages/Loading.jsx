@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./loading.module.css"
+import styles from "./Loading.module.css"
 const Loading=() => {
   return (
     <div id= {styles["wifi-loader"]} >

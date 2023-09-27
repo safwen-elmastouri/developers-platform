@@ -1,13 +1,15 @@
 body {
   height: 100vh;
   overflow: auto;
-margin: 0px;
+  margin: 0px;
 }
 .container {
   display: flex;
   flex-direction: row;
-  padding: 100px;
-    }
+  width: auto;
+  
+  box-sizing: border-box;
+}
 .register {
   box-shadow: 1px -1px 51px -13px rgba(0, 0, 0, 0.46);
   -webkit-box-shadow: 1px -1px 51px -13px rgba(0, 0, 0, 0.46);
@@ -58,7 +60,8 @@ form {
   flex-direction: column;
 }
 .errorMsg {
-  max-width: 350px;
+  max-width: 150px;
+  flex-wrap: wrap;
   color: #f21e08;
   margin-top: 2px;
   font-size: 14px;
@@ -79,14 +82,14 @@ form {
 }
 
 @media only screen and (max-width: 768px) {
-
   body {
-  height: 100vh;
-  overflow: hidden;
-margin: 0px;
-}
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+  }
   .container {
-  display: flex;
-  flex-direction: column-reverse;
-  padding: 100px;
-}}
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 100px;
+  }
+}
