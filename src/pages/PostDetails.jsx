@@ -34,7 +34,6 @@ const PostDetails = () => {
   }, [selectedPost.answers.length]);
 
   const focus = () => {};
-
   const blur = () => {
     buttonRef.current.blur();
   };
@@ -75,34 +74,45 @@ const PostDetails = () => {
             likes={selectedPost.likes}
             liked={selectedPost.liked}
           />
-
-          <Container
-            sx={{
-              backgroundColor: "#1b263b",
-              borderRadius: "25px",
-              minHeight: "50%",
-            }}>
-            {selectedPost.answers.map((comment, index) => {
-              return (
-                <Box key={index}>
-                  <Typography className={styles.user}>
-                    {comment.answered_by}
-                  </Typography>
-                  <Typography className={styles.answer}>
-                    {" "}
-                    {comment.answer}{" "}
-                  </Typography>
-                  <Button
-                    ref={buttonRef}
-                    id={styles.button}
-                    onClick={() => buttonRef.current.focus()}>
-                    Reply
-                  </Button>
-                </Box>
-              );
-            })}
-          </Container>
-
+          {selectedPost.answers.length != 0 ? (
+            <Container
+              sx={{
+                backgroundColor: "#1b263b",
+                borderRadius: "25px",
+                height: "fit-content",
+              }}>
+              {selectedPost.answers.map((comment, index) => {
+                return (
+                  <Box key={index}>
+                    {}
+                    <Typography className={styles.user}>
+                      {comment.answered_by}
+                    </Typography>
+                    <Typography className={styles.answer}>
+                      {" "}
+                      {comment.answer}{" "}
+                    </Typography>
+                    <Button
+                      id={styles.button}
+                      onClick={() => buttonRef.current.focus()}>
+                      Reply
+                    </Button>
+                  </Box>
+                );
+              })}
+            </Container>
+          ) : (
+            <Container
+              sx={{
+                backgroundColor: "#1b263b",
+                display: "flex",
+                justifyContent: "center",
+                padding: "20px",
+                borderRadius: "25px",
+              }}>
+              <Typography className={styles.answer}>No reply yet</Typography>
+            </Container>
+          )}
           <form className={styles.form} onSubmit={SubmitReply}>
             <TextField
               ref={buttonRef}

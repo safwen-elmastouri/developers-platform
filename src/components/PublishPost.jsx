@@ -28,10 +28,7 @@ export default function PublishPost() {
     date: "Now",
     question: "",
     answers: [
-      {
-        answered_by: "dsqfd",
-        answer: "sfqds",
-      },
+     
     ],
   });
   const submitPost = (e) => {
