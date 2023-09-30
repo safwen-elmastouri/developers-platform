@@ -8,7 +8,6 @@ import { Navigate, Outlet } from "react-router-dom";
 function Home(props) {
   const user = useSelector((state) => state.user);
   const post = useSelector((state) => state.post);
-  console.log(post)
   if (user.length == 0) {
     return <Navigate to="/" replace />;
   } else {
@@ -25,7 +24,6 @@ function Home(props) {
             {post &&
               post.map((item, index) => {
                 return (
-                  <Fragment key={index}>
                     <Post
                       asked_by={item.asked_by}
                       id={item.id}
@@ -34,7 +32,6 @@ function Home(props) {
                       likes={item.likes}
                       liked={item.liked}
                     />
-                  </Fragment>
                 );
               })}
           </Grid>

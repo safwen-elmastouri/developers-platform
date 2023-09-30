@@ -4,13 +4,20 @@ import { Box, Container, Typography } from "@mui/material";
 import logo from "../images/avatar.png";
 import EditIcon from "@mui/icons-material/Edit";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileInfo() {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const toProfile = () => {
+    navigate("/profile");
+  };
   return (
     <>
       <Container container spacing={3} className={styles.container}>
-        <EditIcon sx={{ color: "white", ml: "90%", mt: "10px" }} />
+        <EditIcon onClick={()=>toProfile()}
+          sx={{ color: "white", ml: "90%", mt: "10px", cursor: "pointer" }}
+        />
         <img
           className={styles.profilePicture}
           src={logo}

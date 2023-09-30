@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Suspense, lazy } from "react";
-import { Register, Sign, PostDetails } from "./pages";
+import { Register, Sign, PostDetails, UserProfile } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./store";
 import { Provider } from "react-redux";
@@ -27,6 +27,7 @@ function App() {
             }
           />
           <Route path="post" element={<PostDetails />} />
+          <Route path="profile" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </Provider>
