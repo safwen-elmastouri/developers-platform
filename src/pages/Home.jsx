@@ -3,11 +3,12 @@ import styles from "./Home.module.css";
 import { Box, Grid } from "@mui/material";
 import ProfileInfo from "../components/ProfileInfo";
 import { useSelector } from "react-redux";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 function Home(props) {
-  const { post, user } = useSelector((state) => state);
-
+  const user = useSelector((state) => state.user);
+  const post = useSelector((state) => state.post);
+  console.log(post)
   if (user.length == 0) {
     return <Navigate to="/" replace />;
   } else {

@@ -44,7 +44,6 @@ const PostDetails = () => {
   });
 
   const handleReply = (e) => {
-    e.preventDefault();
     setReply({
       ...reply,
       answer: e.target.value,

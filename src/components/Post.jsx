@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 /* import EditPost from "./EditPost";*/
 const Post = (props) => {
-  const { asked_by, question, likes, date, id,liked } = props;
+  const { asked_by, question, likes, date, id, liked } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLike = () => {
@@ -42,10 +42,9 @@ const Post = (props) => {
             cursor: "pointer",
           }}
         />
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
           <p className={styles.user}> {asked_by}</p>
-          <Typography
-            sx={{ mt: "-20px", ml: "20px", color: "grey" }}>
+          <Typography sx={{ mt: "-20px", ml: "20px", color: "grey" }}>
             {" "}
             {date}{" "}
           </Typography>

@@ -14,7 +14,7 @@ export const postSlice = createSlice({
       };
     },
     publishPost: (state, { payload }) => {
-      state.unshift(payload);
+      state = payload;
     },
     likedPost: (state, { payload }) => {
       let likes = parseInt(state[payload].likes) + 1;
@@ -27,7 +27,7 @@ export const postSlice = createSlice({
       state[payload].liked = false;
     },
     addRelpy: (state, { payload }) => {
-      const { id,...reply } = payload
+      const { id, ...reply } = payload;
       state[id].answers.push(reply);
     },
   },
