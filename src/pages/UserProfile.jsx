@@ -165,6 +165,10 @@ const UserProfile = () => {
                   variant="filled"
                   {...register("zipCode", {
                     required: "Zip Code is required.",
+                    pattern: {
+                      value: /^[0-9]+$/,
+                      message: "Please enter a valid zip code",
+                    },
                   })}
                 />
                 {errors.zipCode && (
