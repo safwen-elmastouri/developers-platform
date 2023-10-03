@@ -14,6 +14,8 @@ import logo from "../images/avatar.png";
 import styles from "./UserProfile.module.css";
 import { AccountCircle, Mail, LocalPhone } from "@mui/icons-material";
 const UserProfile = () => {
+  const { user } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   return (
@@ -31,71 +33,128 @@ const UserProfile = () => {
             p: "35px",
             bgcolor: "#1b263b",
           }}>
-          <img id={styles["profile-img"]} alt="profile pic" src={logo} />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-
-              alignItems: "center",
-              justifyContent: "center",
-            }}>
-            <TextField
-              sx={{ width: "50%", m: "25px" }}
-              id="name"
-              label="Full name"
-              variant="filled"
-            />
-
-            <TextField
-              sx={{ width: "50%", m: "25px" }}
-              id="email"
-              label="Email"
-              variant="filled"
-            />
-
-            <TextField
-              sx={{ width: "50%", m: "25px" }}
-              id="phone"
-              label="Phone"
-              variant="filled"
-            />
-            <TextField
-              sx={{ width: "50%", m: "25px" }}
-              id="city"
-              label="City"
-              variant="filled"
-            />
-            <Grid>
+          <form>
+            <img id={styles["profile-img"]} alt="profile pic" src={logo} />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
               <TextField
-                sx={{ width: "50%", m: "25px" }}
-                id="state"
-                label="State"
+                defaultValue={user.fullName}
+                required
+                sx={{
+                  width: "50%",
+                  m: "25px",
+                  bgcolor: "#415a77",
+                  borderRadius: "25px",
+                }}
+                id="name"
+                label="Full name"
+                variant="filled"
+              />
+
+              <TextField
+                defaultValue={user.email}
+                required
+                sx={{
+                  width: "50%",
+                  m: "25px",
+                  bgcolor: "#415a77",
+                  borderRadius: "25px",
+                }}
+                id="email"
+                label="Email"
+                variant="filled"
+              />
+
+              <TextField
+                defaultValue={user.phone}
+                required
+                sx={{
+                  width: "50%",
+                  m: "25px",
+                  bgcolor: "#415a77",
+                  borderRadius: "25px",
+                }}
+                id="phone"
+                label="Phone"
                 variant="filled"
               />
               <TextField
-                sx={{ width: "50%", m: "25px" }}
-                id="zip"
-                label="Zip Code"
+                required
+                defaultValue={user.city}
+                sx={{
+                  width: "50%",
+                  m: "25px",
+                  bgcolor: "#415a77",
+                  borderRadius: "25px",
+                }}
+                id="city"
+                label="City"
                 variant="filled"
               />
-            </Grid>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}>
-            <Button sx={{ width: "15%", mr: "25px"  }} variant="outlined">
-              Back To Home
-            </Button>
-            <Button
-              sx={{ width: "20%", bgcolor: "#415a77" }}
-              variant="contained">
-              Save Changes
-            </Button>
-          </Box>
+              <Grid>
+                <TextField
+                  required
+                  defaultValue={user.state}
+                  sx={{
+                    width: "50%",
+                    m: "25px",
+                    bgcolor: "#415a77",
+                    borderRadius: "25px",
+                  }}
+                  id="state"
+                  label="State"
+                  variant="filled"
+                />
+                <TextField
+                  required
+                  defaultValue={user.zipCode}
+                  sx={{
+                    width: "50%",
+                    m: "25px",
+                    bgcolor: "#415a77",
+                    borderRadius: "25px",
+                  }}
+                  id="zip"
+                  label="Zip Code"
+                  variant="filled"
+                />
+              </Grid>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+              <Button
+                type="reset"
+                sx={{
+                  width: "20%",
+                  mr: "25px",
+                  textTransform: "none",
+                  borderRadius: "25px",
+                }}
+                variant="outlined">
+                Back To Home
+              </Button>
+              <Button
+                type="submit"
+                sx={{
+                  width: "20%",
+                  bgcolor: "#415a77",
+                  textTransform: "none",
+                  borderRadius: "25px",
+                }}
+                variant="contained">
+                Save Changes
+              </Button>
+            </Box>
+          </form>
         </Grid>
         <Grid item xs={3}>
           {/*  person you may know */}

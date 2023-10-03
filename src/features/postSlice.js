@@ -14,7 +14,7 @@ export const postSlice = createSlice({
       };
     },
     publishPost: (state, { payload }) => {
-      state.unshift(payload)
+      state.unshift(payload);
     },
     likedPost: (state, { payload }) => {
       let likes = parseInt(state[payload].likes) + 1;
