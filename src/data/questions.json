@@ -2,7 +2,7 @@
   {
     "id": "0",
     "asked_by": "Alice",
-    "likes": "5",
+    "likes": 5,
     "date": "2 hours ago",
     "question": "What is JavaScript and why is it important in web development?",
     "liked": false,
@@ -24,7 +24,7 @@
   {
     "id": "1",
     "asked_by": "Eve",
-    "likes": "2",
+    "likes": 2,
     "liked": false,
     "date": "1 day ago",
     "question": "What are the key differences between JavaScript and Java?",
@@ -47,7 +47,7 @@
     "id": "2",
     "liked": false,
     "asked_by": "Ivy",
-    "likes": "10",
+    "likes": 10,
     "date": "30 minutes ago",
     "question": "What is a closure in JavaScript?",
     "answers": [
@@ -69,7 +69,7 @@
     "id": "3",
     "asked_by": "Mary",
     "liked": false,
-    "likes": "25",
+    "likes": 25,
     "date": "18 hours ago",
     "question": "Explain the concept of 'props' in React.",
     "answers": [
@@ -91,7 +91,7 @@
     "id": "4",
     "asked_by": "Quincy",
     "liked": false,
-    "likes": "3",
+    "likes": 3,
     "date": "Just now",
     "question": "What is JSX in React, and why is it used?",
     "answers": [
@@ -113,7 +113,7 @@
     "id": "5",
     "asked_by": "Uma",
     "liked": false,
-    "likes": "5",
+    "likes": 5,
     "date": "15 minutes ago",
     "question": "What is state in React?",
     "answers": [
@@ -135,7 +135,7 @@
     "id": "6",
     "asked_by": "Yara",
     "liked": false,
-    "likes": "6",
+    "likes": 6,
     "date": "1 hours ago",
     "question": "What is the purpose of React Router?",
     "answers": [
@@ -157,7 +157,7 @@
     "id": "7",
     "asked_by": "Carla",
     "liked": false,
-    "likes": "11",
+    "likes": 11,
     "date": "9 hours ago",
     "question": "What is the virtual DOM in React, and why is it used?",
     "answers": [
@@ -179,7 +179,7 @@
     "id": "8",
     "asked_by": "Gavin",
     "liked": false,
-    "likes": "15",
+    "likes": 15,
     "date": "1 day ago",
     "question": "What are React hooks, and why were they introduced?",
     "answers": [
@@ -201,7 +201,7 @@
     "id": "9",
     "asked_by": "Keith",
     "liked": false,
-    "likes": "7",
+    "likes": 7,
     "date": "11 hours ago",
     "question": "Explain the concept of 'component lifecycle' in React.",
     "answers": [

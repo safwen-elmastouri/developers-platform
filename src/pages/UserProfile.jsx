@@ -17,7 +17,7 @@ const UserProfile = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(updateUser(data))
   };
   return (
     <Box>
