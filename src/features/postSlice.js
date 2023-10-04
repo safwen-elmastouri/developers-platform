@@ -17,13 +17,11 @@ export const postSlice = createSlice({
       state.unshift(payload);
     },
     likedPost: (state, { payload }) => {
-      let likes = parseInt(state[payload].likes) + 1;
-      state[payload].likes = likes;
+      state[payload].likes++;
       state[payload].liked = true;
     },
     dislikedPost: (state, { payload }) => {
-      let likes = parseInt(state[payload].likes) - 1;
-      state[payload].likes = likes;
+      state[payload].likes--;
       state[payload].liked = false;
     },
     addRelpy: (state, { payload }) => {
