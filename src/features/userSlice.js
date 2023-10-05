@@ -9,9 +9,9 @@ export const userSlice = createSlice({
     addUser: (state, action) => {
       return action.payload;
     },
-  },
-  updateUser: (state, action) => {
-    return action.payload;
+    updateUser: (state, { payload }) => {
+        return { state, ...payload };
+    },
   },
 });
 

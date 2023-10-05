@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavBar } from "../components";
 import { Box, Button, Grid, TextField } from "@mui/material";
@@ -9,7 +9,7 @@ import styles from "./UserProfile.module.css";
 
 const UserProfile = () => {
   const { user } = useSelector((state) => state);
-
+  const [userData, setUserData] = useState(null);
   const dispatch = useDispatch();
   const {
     register,
@@ -17,7 +17,8 @@ const UserProfile = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    dispatch(updateUser(data))
+    setUserData(data);
+    dispatch(updateUser(userData));
   };
   return (
     <>
@@ -34,7 +35,7 @@ const UserProfile = () => {
             p: "35px",
             bgcolor: "#1b263b",
           }}>
-          <form onSubmit={()=> handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <img id={styles["profile-img"]} alt="profile pic" src={logo} />
             <Box
               sx={{
