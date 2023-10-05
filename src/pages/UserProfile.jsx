@@ -20,7 +20,7 @@ const UserProfile = () => {
     dispatch(updateUser(data))
   };
   return (
-    <Box>
+    <>
       <NavBar />
       <Grid container spacing={3}>
         <Grid item xs={3}>
@@ -34,7 +34,7 @@ const UserProfile = () => {
             p: "35px",
             bgcolor: "#1b263b",
           }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={()=> handleSubmit(onSubmit)}>
             <img id={styles["profile-img"]} alt="profile pic" src={logo} />
             <Box
               sx={{
@@ -211,7 +211,7 @@ const UserProfile = () => {
           {/*  person you may know */}
         </Grid>
       </Grid>
-    </Box>
+    </>
   );
 };
 export default UserProfile;
