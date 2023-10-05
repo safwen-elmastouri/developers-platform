@@ -13,13 +13,19 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavBar() {
+  const pages = [
+    { name: "Home", link: "/home" },
+    { name: "Account", link: "/profile" },
+  ];
+  const settings = [
+    { name: "Account", link: "/profile" },
+    { name: "Lougout", link: "/" },
+  ];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-const navigate =useNavigate()
+  const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -55,10 +61,10 @@ const navigate =useNavigate()
             variant="h6"
             noWrap
             component="a"
-            onClick={()=> navigate("/home")}
+            onClick={() => navigate("/home")}
             sx={{
               display: { xs: "none", md: "flex" },
-              cursor:"pointer",
+              cursor: "pointer",
               mr: 2,
               fontFamily: "monospace",
               fontWeight: 700,
@@ -95,13 +101,18 @@ const navigate =useNavigate()
               sx={{
                 display: { xs: "block", md: "none" },
               }}>
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ color: "black " }} textAlign="center">
-                    {page}
-                  </Typography>
-                </MenuItem>
-              ))}
+              {pages.map((page) => {
+                return (
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography
+                      onClick={() => navigate(page.link)}
+                      sx={{ color: "black " }}
+                      textAlign="center">
+                      {page.name}
+                    </Typography>
+                  </MenuItem>
+                );
+              })}
             </Menu>
           </Box>
           <AdbIcon
@@ -132,19 +143,21 @@ const navigate =useNavigate()
             }}>
             LOGO
           </Typography>
+          {/*           web version
+           */}{" "}
           <Box
             justifyContent="center"
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={() => handleCloseNavMenu && navigate(page.link)}
                 sx={{
                   color: "#e0e1dd",
                   display: "block",
                   textTransform: "none",
                 }}>
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
@@ -170,9 +183,12 @@ const navigate =useNavigate()
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}>
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography color="#0d1b2a  " textAlign="center">
-                    {setting}
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Typography
+                    onClick={() => navigate(setting.link)}
+                    color="#0d1b2a  "
+                    textAlign="center">
+                    {setting.name}
                   </Typography>
                 </MenuItem>
               ))}
