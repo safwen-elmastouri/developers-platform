@@ -114,6 +114,7 @@ const PostDetails = () => {
           )}
           <form className={styles.form} onSubmit={SubmitReply}>
             <TextField
+              required
               ref={buttonRef}
               value={reply.answer}
               type="text "
@@ -126,7 +127,7 @@ const PostDetails = () => {
                 width: "100%",
               }}
               InputProps={{
-                endAdornment: reply && (
+                endAdornment: reply.answer.length>0 && (
                   <InputAdornment position="end">
                     <SendIcon
                       sx={{ cursor: "pointer" }}
