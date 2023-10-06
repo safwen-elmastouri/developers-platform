@@ -89,8 +89,29 @@ const UserProfile = () => {
               )}
 
               <TextField
+                defaultValue={user.jobTitle}
+                sx={{
+                  width: "50%",
+                  m: "25px",
+                  bgcolor: "#415a77",
+                  borderRadius: "25px",
+                }}
+                id="job-title"
+                label="Job title"
+                variant="filled"
+                {...register("jobTitle", {
+                  pattern: {
+                    message: "Please enter valid name",
+                    value: /^[a-zA-Z ]*$/,
+                  },
+                })}
+              />
+              {errors.jobTitle && (
+                <p className="errorMsg">{errors.jobTitle.message}</p>
+              )}
+
+              <TextField
                 defaultValue={user.phone}
-                required
                 sx={{
                   width: "50%",
                   m: "25px",
@@ -113,7 +134,6 @@ const UserProfile = () => {
               )}
 
               <TextField
-                required
                 defaultValue={user.city}
                 sx={{
                   width: "50%",
@@ -125,15 +145,12 @@ const UserProfile = () => {
                 name="city"
                 label="City"
                 variant="filled"
-                {...register("city", {
-                  required: "city is required.",
-                })}
+                {...register("city", {})}
               />
               {errors.city && <p className="errorMsg">{errors.city.message}</p>}
 
               <Grid>
                 <TextField
-                  required
                   defaultValue={user.state}
                   sx={{
                     width: "50%",
@@ -144,16 +161,13 @@ const UserProfile = () => {
                   id="state"
                   label="State"
                   variant="filled"
-                  {...register("state", {
-                    required: "state is required.",
-                  })}
+                  {...register("state", {})}
                 />
                 {errors.state && (
                   <p className="errorMsg">{errors.state.message}</p>
                 )}
 
                 <TextField
-                  required
                   defaultValue={user.zipCode}
                   sx={{
                     width: "50%",
@@ -165,7 +179,6 @@ const UserProfile = () => {
                   label="Zip Code"
                   variant="filled"
                   {...register("zipCode", {
-                    required: "Zip Code is required.",
                     pattern: {
                       value: /^[0-9]+$/,
                       message: "Please enter a valid zip code",

@@ -15,7 +15,8 @@ export default function ProfileInfo() {
   return (
     <>
       <Container container spacing={3} className={styles.container}>
-        <EditIcon onClick={()=>toProfile()}
+        <EditIcon
+          onClick={() => toProfile()}
           sx={{ color: "white", ml: "90%", mt: "10px", cursor: "pointer" }}
         />
         <img
@@ -25,7 +26,8 @@ export default function ProfileInfo() {
         />
         <Box className={styles.infoContainer}>
           <p className={styles.info}> {user.fullName} </p>
-          <p className={styles.info}> Web Developer </p>
+
+          {user.jobTitle && <p className={styles.info}> {user.jobTitle} </p>}
         </Box>
       </Container>
     </>
