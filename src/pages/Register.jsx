@@ -15,7 +15,7 @@ const Register = (props) => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(null);
 
   const {
     register,
@@ -23,8 +23,8 @@ const Register = (props) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    clicked && navigate("/home");
     dispatch(addUser(data));
+    clicked && navigate("/home");
   };
   return (
     <div className={styles.form}>
