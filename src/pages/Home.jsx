@@ -1,5 +1,5 @@
 import { NavBar, PublishPost, Post } from "../components";
-import styles from "./Home.module.css";
+import styles from "../styles/Home.module.css";
 import { Box, Grid } from "@mui/material";
 import ProfileInfo from "../components/ProfileInfo";
 import { useSelector } from "react-redux";
@@ -21,17 +21,18 @@ function Home(props) {
           </Grid>
           <Grid item xs={6} sx={{ mt: "20px" }}>
             <PublishPost />
+            {console.log(post)}
             {post &&
               post.map((item, index) => {
                 return (
-                    <Post
-                      asked_by={item.asked_by}
-                      id={item.id}
-                      date={item.date}
-                      question={item.question}
-                      likes={item.likes}
-                      liked={item.liked}
-                    />
+                  <Post
+                    asked_by={item.asked_by}
+                    id={item.id}
+                    date={item.date}
+                    question={item.question}
+                    likes={item.likes}
+                    liked={item.liked}
+                  />
                 );
               })}
           </Grid>

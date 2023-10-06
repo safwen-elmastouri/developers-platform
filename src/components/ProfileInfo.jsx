@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./ProfilInfo.module.css";
+import styles from "../styles/ProfilInfo.module.css";
 import { Box, Container, Typography } from "@mui/material";
 import logo from "../images/avatar.png";
 import EditIcon from "@mui/icons-material/Edit";

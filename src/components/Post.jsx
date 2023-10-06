@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Post.module.css";
+import styles from "../styles/Post.module.css";
 import { Box, Container, Typography } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 // import ModeEditIcon from "@mui/icons-material/ModeEdit";
@@ -22,6 +22,7 @@ const Post = (props) => {
 
   const handleDislike = () => {
     dispatch(dislikedPost(id));
+    console.log(id)
   };
 
   const goToPostPage = () => {

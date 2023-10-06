@@ -5,7 +5,7 @@ import { Box, Button, Grid, TextField } from "@mui/material";
 import logo from "../images/avatar.png";
 import { updateUser } from "../features/userSlice";
 import { useForm } from "react-hook-form";
-import styles from "./UserProfile.module.css";
+import styles from "../styles/UserProfile.module.css";
 
 const UserProfile = () => {
   const { user } = useSelector((state) => state);

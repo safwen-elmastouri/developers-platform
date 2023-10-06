@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NavBar, Post } from "../components";
-import styles from "./PostDetails.module.css";
+import styles from "../styles/PostDetails.module.css";
 import {
   Box,
   Button,
