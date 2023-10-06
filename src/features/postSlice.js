@@ -15,6 +15,7 @@ export const postSlice = createSlice({
     },
     publishPost: (state, { payload }) => {
       state.unshift(payload);
+      
     },
     likedPost: (state, { payload }) => {
       state[payload].likes++;

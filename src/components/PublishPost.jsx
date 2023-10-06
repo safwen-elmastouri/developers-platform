@@ -23,18 +23,16 @@ export default function PublishPost() {
   const [postContent, setPostContent] = useState({
     id: uuidv4(),
     asked_by: user,
-    likes: "0",
+    likes: 0,
     liked: false,
     date: "Now",
     question: "",
-    answers: [
-     
-    ],
+    answers: [],
   });
   const submitPost = (e) => {
     e.preventDefault();
     dispatch(publishPost(postContent));
-    setPostContent({ ...postContent, question: "" });
+    setPostContent({ ...postContent, question: "", id: uuidv4() });
   };
 
   return (

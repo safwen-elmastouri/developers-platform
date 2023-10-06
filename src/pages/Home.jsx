@@ -21,13 +21,12 @@ function Home(props) {
           </Grid>
           <Grid item xs={6} sx={{ mt: "20px" }}>
             <PublishPost />
-            {console.log(post)}
             {post &&
               post.map((item, index) => {
                 return (
                   <Post
                     asked_by={item.asked_by}
-                    id={item.id}
+                    id={index}
                     date={item.date}
                     question={item.question}
                     likes={item.likes}

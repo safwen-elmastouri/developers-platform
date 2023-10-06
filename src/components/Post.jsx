@@ -22,7 +22,6 @@ const Post = (props) => {
 
   const handleDislike = () => {
     dispatch(dislikedPost(id));
-    console.log(id)
   };
 
   const goToPostPage = () => {
