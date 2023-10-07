@@ -1,10 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
-import defaultPost from "../data/questions.json";
-const initialState = [...defaultPost];
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+/* import defaultPost from "../data/questions.json";
+ */
+import axios from "axios";
+
+const initialState = {
+  loading: false,
+  post: [],
+  error: "",
+};
+export const fetchPosts = createAsyncThunk("post/fetchPosts", () => {
+  return axios.get("/questions").then((response) => response.data);
+});
 
 export const postSlice = createSlice({
   name: "post",
   initialState,
+  extraReducers: (builder) => {
+    builder.addCase(fetchPosts.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchPosts.fulfilled, (state, action) => {
+      state.loading = false;
+      state.post = action.payload;
+      state.error = "";
+    });
+    builder.addCase(fetchPosts.rejected, (state, action) => {
+      state.loading = false;
+      state.post = [];
+      state.error = action.error.message;
+    });
+  },
   reducers: {
     editPost: (id, state, action) => {
       let currentPost = state.post.find((post) => post === id);
@@ -15,7 +40,6 @@ export const postSlice = createSlice({
     },
     publishPost: (state, { payload }) => {
       state.unshift(payload);
-      
     },
     likedPost: (state, { payload }) => {
       state[payload].likes++;

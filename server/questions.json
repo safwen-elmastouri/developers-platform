@@ -1,0 +1,222 @@
+[
+  {
+    "id": "0",
+    "asked_by": "Alice",
+    "likes": 5,
+    "date": "2 hours ago",
+    "question": "What is JavaScript and why is it important in web development?",
+    "liked": false,
+    "answers": [
+      {
+        "answered_by": "Bob",
+        "answer": "JavaScript is a high-level, dynamic, and interpreted programming language used to create interactive and dynamic web pages."
+      },
+      {
+        "answered_by": "Charlie",
+        "answer": "JavaScript is crucial in web development because it allows developers to add interactivity, perform client-side scripting, and enhance the user experience on websites."
+      },
+      {
+        "answered_by": "David",
+        "answer": "JavaScript is versatile and can be used both in the browser and on the server (Node.js), making it a full-stack development language."
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "asked_by": "Eve",
+    "likes": 2,
+    "liked": false,
+    "date": "1 day ago",
+    "question": "What are the key differences between JavaScript and Java?",
+    "answers": [
+      {
+        "answered_by": "Frank",
+        "answer": "JavaScript and Java are entirely different programming languages."
+      },
+      {
+        "answered_by": "Grace",
+        "answer": "JavaScript is primarily used for web development and runs in web browsers, while Java is a general-purpose language."
+      },
+      {
+        "answered_by": "Hank",
+        "answer": "JavaScript is dynamically typed, meaning variable types can change at runtime, whereas Java is statically typed."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "liked": false,
+    "asked_by": "Ivy",
+    "likes": 10,
+    "date": "30 minutes ago",
+    "question": "What is a closure in JavaScript?",
+    "answers": [
+      {
+        "answered_by": "Jack",
+        "answer": "A closure in JavaScript is a function that has access to its own scope, the outer function's scope, and the global scope."
+      },
+      {
+        "answered_by": "Kate",
+        "answer": "Closures are used to create private variables and maintain state in functions."
+      },
+      {
+        "answered_by": "Liam",
+        "answer": "They allow for data encapsulation and can be used for advanced techniques like currying and memoization."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "asked_by": "Mary",
+    "liked": false,
+    "likes": 25,
+    "date": "18 hours ago",
+    "question": "Explain the concept of 'props' in React.",
+    "answers": [
+      {
+        "answered_by": "Nathan",
+        "answer": "In React, 'props' (short for properties) are a way to pass data from a parent component to a child component."
+      },
+      {
+        "answered_by": "Olivia",
+        "answer": "Props are read-only and are used to configure and customize child components."
+      },
+      {
+        "answered_by": "Peter",
+        "answer": "They enable the dynamic rendering of components based on data and can be accessed using 'this.props' within a component."
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "asked_by": "Quincy",
+    "liked": false,
+    "likes": 3,
+    "date": "Just now",
+    "question": "What is JSX in React, and why is it used?",
+    "answers": [
+      {
+        "answered_by": "Riley",
+        "answer": "JSX (JavaScript XML) is a syntax extension used in React to describe the structure and appearance of user interface components."
+      },
+      {
+        "answered_by": "Sarah",
+        "answer": "It allows developers to write HTML-like code within JavaScript, making it easier to define and render components."
+      },
+      {
+        "answered_by": "Tom",
+        "answer": "JSX is transpiled to JavaScript using tools like Babel, ensuring compatibility with browsers."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "asked_by": "Uma",
+    "liked": false,
+    "likes": 5,
+    "date": "15 minutes ago",
+    "question": "What is state in React?",
+    "answers": [
+      {
+        "answered_by": "Vince",
+        "answer": "State in React represents the internal data of a component."
+      },
+      {
+        "answered_by": "Wendy",
+        "answer": "It is used to store and manage data that can change over time and affect a component's rendering."
+      },
+      {
+        "answered_by": "Xander",
+        "answer": "When state changes, React re-renders the component to reflect the new state, providing a dynamic user interface."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "asked_by": "Yara",
+    "liked": false,
+    "likes": 6,
+    "date": "1 hours ago",
+    "question": "What is the purpose of React Router?",
+    "answers": [
+      {
+        "answered_by": "Zane",
+        "answer": "React Router is a library for routing and navigating in React applications."
+      },
+      {
+        "answered_by": "Amy",
+        "answer": "It enables the creation of single-page applications with multiple views or pages."
+      },
+      {
+        "answered_by": "Bryce",
+        "answer": "React Router helps manage URL-based navigation and keeps the UI in sync with the URL, enhancing the user experience."
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "asked_by": "Carla",
+    "liked": false,
+    "likes": 11,
+    "date": "9 hours ago",
+    "question": "What is the virtual DOM in React, and why is it used?",
+    "answers": [
+      {
+        "answered_by": "Dylan",
+        "answer": "The virtual DOM (Document Object Model) in React is an abstraction of the actual DOM."
+      },
+      {
+        "answered_by": "Emma",
+        "answer": "React uses the virtual DOM to optimize and improve performance when updating the user interface."
+      },
+      {
+        "answered_by": "Finn",
+        "answer": "Changes made to the virtual DOM are reconciled with the actual DOM in the most efficient way, reducing direct DOM manipulations."
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "asked_by": "Gavin",
+    "liked": false,
+    "likes": 15,
+    "date": "1 day ago",
+    "question": "What are React hooks, and why were they introduced?",
+    "answers": [
+      {
+        "answered_by": "Holly",
+        "answer": "React hooks are functions that allow functional components to manage state and side effects."
+      },
+      {
+        "answered_by": "Ian",
+        "answer": "They were introduced to simplify the management of component logic and state in functional components."
+      },
+      {
+        "answered_by": "Jasmine",
+        "answer": "Hooks like 'useState' and 'useEffect' provide an alternative to class-based components for handling state and lifecycle events."
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "asked_by": "Keith",
+    "liked": false,
+    "likes": 7,
+    "date": "11 hours ago",
+    "question": "Explain the concept of 'component lifecycle' in React.",
+    "answers": [
+      {
+        "answered_by": "Luna",
+        "answer": "In React, the component lifecycle refers to the various stages a component goes through, from initialization to rendering, updating, and unmounting."
+      },
+      {
+        "answered_by": "Miles",
+        "answer": "Each stage is associated with specific lifecycle methods (e.g., 'componentDidMount,' 'componentDidUpdate,' 'componentWillUnmount') that allow developers to perform actions at different points in a component's life."
+      },
+      {
+        "answered_by": "Nina",
+        "answer": "Understanding the component lifecycle is crucial for managing side effects and ensuring a smooth user experience."
+      }
+    ]
+  }
+]

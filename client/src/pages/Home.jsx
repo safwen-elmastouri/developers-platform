@@ -1,10 +1,17 @@
 import { Box, Grid } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 import { NavBar, Post, PublishPost } from "../components";
 import ProfileInfo from "../components/ProfileInfo";
 import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
+import { fetchPosts } from "../features/postSlice";
 function Home(props) {
+  const dispatch = useDispatch();
+  const [postList, setPostList] = useState(null);
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
   const user = useSelector((state) => state.user);
   const post = useSelector((state) => state.post);
   if (user.length === 0) {
@@ -20,8 +27,8 @@ function Home(props) {
           </Grid>
           <Grid item xs={6} sx={{ mt: "20px" }}>
             <PublishPost />
-            {post &&
-              post.map((item, index) => {
+            {post.post &&
+              post.post.map((item, index) => {
                 return (
                   <Post
                     asked_by={item.asked_by}
