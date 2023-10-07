@@ -17,7 +17,7 @@ import { addRelpy } from "../features/postSlice";
 const PostDetails = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const post = useSelector((state) => state.post);
+  const post = useSelector((state) => state.post.post);
   const user = useSelector((state) => state.user.fullName);
   const { id } = location.state;
   const selectedPost = post[id];
@@ -127,7 +127,7 @@ const PostDetails = () => {
                 width: "100%",
               }}
               InputProps={{
-                endAdornment: reply.answer.length>0 && (
+                endAdornment: reply.answer.length > 0 && (
                   <InputAdornment position="end">
                     <SendIcon
                       sx={{ cursor: "pointer" }}

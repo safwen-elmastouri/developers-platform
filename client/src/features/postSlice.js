@@ -39,19 +39,19 @@ export const postSlice = createSlice({
       };
     },
     publishPost: (state, { payload }) => {
-      state.unshift(payload);
+      state.post.unshift(payload);
     },
     likedPost: (state, { payload }) => {
-      state[payload].likes++;
-      state[payload].liked = true;
+      state.post[payload].likes++;
+      state.post[payload].liked = true;
     },
     dislikedPost: (state, { payload }) => {
-      state[payload].likes--;
-      state[payload].liked = false;
+      state.post[payload].likes--;
+      state.post[payload].liked = false;
     },
     addRelpy: (state, { payload }) => {
       const { id, ...reply } = payload;
-      state[id].answers.push(reply);
+      state.post[id].answers.push(reply);
     },
   },
 });
