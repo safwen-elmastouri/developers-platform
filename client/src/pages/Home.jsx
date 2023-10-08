@@ -9,11 +9,11 @@ import { fetchPosts } from "../features/postSlice";
 function Home(props) {
   const dispatch = useDispatch();
   const [postList, setPostList] = useState(null);
+  const post = useSelector((state) => state.post);
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
   const user = useSelector((state) => state.user);
-  const post = useSelector((state) => state.post);
   if (user.length === 0) {
     return <Navigate to="/" replace />;
   } else {

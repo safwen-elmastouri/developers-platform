@@ -40,6 +40,15 @@ export const postSlice = createSlice({
     },
     publishPost: (state, { payload }) => {
       state.post.unshift(payload);
+      const post = JSON.stringify(payload);
+      axios
+        .post("/addpost", payload)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     likedPost: (state, { payload }) => {
       state.post[payload].likes++;
