@@ -9,7 +9,7 @@ const initialState = {
   error: "",
 };
 export const fetchPosts = createAsyncThunk("post/fetchPosts", () => {
-  return axios.get("/questions").then((response) => response.data);
+  return axios.get("api/questions").then((response) => response.data);
 });
 
 export const postSlice = createSlice({
@@ -42,7 +42,7 @@ export const postSlice = createSlice({
       state.post.unshift(payload);
       const post = JSON.stringify(payload);
       axios
-        .post("/addpost", payload)
+        .post("api/addpost", payload)
         .then((response) => {
           console.log(response.data);
         })
