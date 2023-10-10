@@ -6,9 +6,9 @@ import ProfileInfo from "../components/ProfileInfo";
 import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import { fetchPosts } from "../features/postSlice";
+import Loading from "./Loading";
 function Home(props) {
   const dispatch = useDispatch();
-  const [postList, setPostList] = useState(null);
   const post = useSelector((state) => state.post);
   useEffect(() => {
     dispatch(fetchPosts());
@@ -25,9 +25,13 @@ function Home(props) {
             {/* profile info */}
             <ProfileInfo />
           </Grid>
+
           <Grid item xs={6} sx={{ mt: "20px" }}>
             <PublishPost />
-            {post.post &&
+            {post.isLoading ? (
+              <Loading />
+            ) : (
+              post.post &&
               post.post.map((item, index) => {
                 return (
                   <Post
@@ -39,7 +43,8 @@ function Home(props) {
                     liked={item.liked}
                   />
                 );
-              })}
+              })
+            )}
           </Grid>
           <Grid item xs={3}>
             {/*  person you may know */}

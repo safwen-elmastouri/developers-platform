@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   post: [],
   error: "",
 };
@@ -17,15 +17,15 @@ export const postSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchPosts.pending, (state) => {
-      state.loading = true;
+      state.isLoading = true;
     });
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
-      state.loading = false;
+      state.isLoading = false;
       state.post = action.payload;
       state.error = "";
     });
     builder.addCase(fetchPosts.rejected, (state, action) => {
-      state.loading = false;
+      state.isLoading = false;
       state.post = [];
       state.error = action.error.message;
     });
