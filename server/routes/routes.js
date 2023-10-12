@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const { MongoClient } = require("mongodb");
+const ListPost = require("../models/model");
 const mongoURL = process.env.DATABASE_URL;
 const dbName = "social-media";
 
@@ -25,13 +26,32 @@ router.get("/questions", async (req, res) => {
 });
 
 router.post("/addpost", async (req, res) => {
-  await client.connect();
-  const db = client.db(dbName);
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection("postList");
+    let result = await collection.insertOne(req.body);
+    res.send(result).status(204);
+    console.log("Post published");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json("Server Error");
+  }
+});
 
-  const collection = db.collection("postList");
-  let result = await collection.insertOne(req.body);
-  res.send(result).status(204);
-  console.log("Post published");
+router.patch("post/:id", async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    console.log(itemId);
+    // Find and update the item in the MongoDB collection
+    const updatedItem = await ListPost.findByIdAndUpdate(itemId, req.body);
+
+    res.json(updatedItem);
+    console.log("updated")
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;

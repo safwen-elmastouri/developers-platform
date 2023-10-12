@@ -2,15 +2,16 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 /* import defaultPost from "../data/questions.json";
  */
 import axios from "axios";
+import { useFetch, post ,handleUpdate} from "../api/axios";
 
 const initialState = {
   isLoading: false,
   post: [],
   error: "",
 };
-export const fetchPosts = createAsyncThunk("post/fetchPosts", () => {
-  return axios.get("api/questions").then((response) => response.data);
-});
+export const fetchPosts = createAsyncThunk("post/fetchPosts", () =>
+  useFetch("questions")
+);
 
 export const postSlice = createSlice({
   name: "post",
@@ -40,19 +41,12 @@ export const postSlice = createSlice({
     },
     publishPost: (state, { payload }) => {
       state.post.unshift(payload);
-      const post = JSON.stringify(payload);
-      axios
-        .post("api/addpost", payload)
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      post("addpost", payload);
     },
     likedPost: (state, { payload }) => {
       state.post[payload].likes++;
       state.post[payload].liked = true;
+      handleUpdate(`${payload}`, state.post[payload])
     },
     dislikedPost: (state, { payload }) => {
       state.post[payload].likes--;

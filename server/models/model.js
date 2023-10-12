@@ -6,5 +6,5 @@ const dataSchema = new mongoose.Schema({
     type: Object,
   },
 });
-
-module.exports = mongoose.model("Data", dataSchema);
+const post = mongoose.model("Data", dataSchema);
+module.exports = post;
