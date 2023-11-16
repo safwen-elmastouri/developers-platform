@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const { MongoClient } = require("mongodb");
-const ListPost = require("../models/model");
+const { MongoClient, ObjectId } = require("mongodb");
+const Model = require("../models/model");
 const mongoURL = process.env.DATABASE_URL;
 const dbName = "social-media";
 
@@ -16,7 +16,7 @@ router.get("/questions", async (req, res) => {
     const db = client.db(dbName);
 
     const collection = db.collection("postList");
-    const data = await collection.find({}).toArray();
+    const data = await collection.find({}).sort({ _id: -1 }).toArray();
 
     res.json(data);
   } catch (error) {
@@ -25,7 +25,7 @@ router.get("/questions", async (req, res) => {
   }
 });
 
-router.post("/addpost", async (req, res) => {
+/* router.post("/addpost", async (req, res) => {
   try {
     await client.connect();
     const db = client.db(dbName);
@@ -38,16 +38,41 @@ router.post("/addpost", async (req, res) => {
     res.status(500).json("Server Error");
   }
 });
+ */
 
-router.patch("post/:id", async (req, res) => {
+//Post Method
+router.post("/addpost", async (req, res) => {
+  const data = new Model({
+    post: req.body,
+  });
+
   try {
-    const itemId = req.params.id;
-    console.log(itemId);
-    // Find and update the item in the MongoDB collection
-    const updatedItem = await ListPost.findByIdAndUpdate(itemId, req.body);
+    const dataToSave = await data.save();
+    res.status(200).json(dataToSave);
+    console.log("Post published");
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
-    res.json(updatedItem);
-    console.log("updated")
+router.put("/post/:id", async (req, res) => {
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection("postList");
+
+    collection
+      .updateOnee(
+        { _id: ObjectId(req.body._id) }, // Filter
+        { $set: { data: req.body } } // Update
+      )
+      .then((obj) => {
+        console.log("Updated - " + obj);
+      })
+      .catch((err) => {
+        console.log("Error: " + err);
+      });
+    console.log("updated");
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });

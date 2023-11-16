@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { dislikedPost, likedPost } from "../features/postSlice";
 
 /* import EditPost from "./EditPost";*/
-const Post = (props) => {
+const   Post = (props) => {
   const { asked_by, question, likes, date, id, liked } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();

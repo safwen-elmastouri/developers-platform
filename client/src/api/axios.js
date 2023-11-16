@@ -15,7 +15,7 @@ export const post = async (url, data) => {
 
 export const handleUpdate = (url, data) => {
   axios
-    .put(`/api/${url}`, data)
+    .put(`/api/post/${url}`, data)
     .then((response) => {
       console.log("Item updated:", response.data);
     })

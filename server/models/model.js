@@ -6,5 +6,5 @@ const dataSchema = new mongoose.Schema({
     type: Object,
   },
 });
-const post = mongoose.model("Data", dataSchema);
-module.exports = post;
+const postList = mongoose.model("postList", dataSchema);
+module.exports = postList;
